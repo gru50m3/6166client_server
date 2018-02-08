@@ -37,7 +37,7 @@ namespace WebAPIClient
                 Console.WriteLine("Failure");
                 Console.WriteLine(e);
             }
-            
+            response.Dispose();
             //using (HttpResponseMessage response = await client.GetAsync(fullPath)) {
             //    using (HttpContent content = response.Content) {
             //        HttpContentHeaders headers = content.Headers;
