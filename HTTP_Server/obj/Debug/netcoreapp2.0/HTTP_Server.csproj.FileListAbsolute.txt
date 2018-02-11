@@ -1,0 +1,11 @@
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\bin\Debug\netcoreapp2.0\HTTP_Server.deps.json
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\bin\Debug\netcoreapp2.0\HTTP_Server.runtimeconfig.json
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\bin\Debug\netcoreapp2.0\HTTP_Server.runtimeconfig.dev.json
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\bin\Debug\netcoreapp2.0\HTTP_Server.dll
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\bin\Debug\netcoreapp2.0\HTTP_Server.pdb
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\obj\Debug\netcoreapp2.0\HTTP_Server.csproj.CoreCompileInputs.cache
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\obj\Debug\netcoreapp2.0\HTTP_Server.AssemblyInfoInputs.cache
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\obj\Debug\netcoreapp2.0\HTTP_Server.AssemblyInfo.cs
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\obj\Debug\netcoreapp2.0\HTTP_Server.dll
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\obj\Debug\netcoreapp2.0\HTTP_Server.pdb
+C:\Users\tconn\Documents\School\ITCS_6166_Computer_Networks\6166client_server\HTTP_Server\obj\Debug\netcoreapp2.0\HTTP_Server.csprojResolveAssemblyReference.cache

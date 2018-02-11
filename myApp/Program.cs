@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Text;
 using System.Net.Http.Headers;
 using System.IO;
 
@@ -25,25 +27,31 @@ namespace WebAPIClient
 
         protected static async Task GetRequest(string url, string file, string portN) {
             string fullPath = url + ":" + portN + "/" + file;
-            Console.WriteLine(fullPath);
+            /*Console.WriteLine(fullPath);
             try 
-            {
-                HttpResponseMessage response = await client.GetAsync(fullPath);
-                response.EnsureSuccessStatusCode();
-                Console.WriteLine("Success");
+            {   
+
+                //HttpResponseMessage response = await client.GetAsync(fullPath);
+                var response = await client.GetAsync(fullPath);
+                
+                //response.EnsureSuccessStatusCode();
+                Console.WriteLine("Success\n" + response);
+                //response.Dispose();
             }
             catch(HttpRequestException e) 
             {
                 Console.WriteLine("Failure");
                 Console.WriteLine(e);
+                
+            }*/
+            
+
+            using (HttpResponseMessage response = await client.GetAsync(fullPath)) {
+                using (HttpContent content = response.Content) {
+                    HttpContentHeaders headers = content.Headers;
+                    Console.WriteLine(content);
+                }
             }
-            response.Dispose();
-            //using (HttpResponseMessage response = await client.GetAsync(fullPath)) {
-            //    using (HttpContent content = response.Content) {
-            //        HttpContentHeaders headers = content.Headers;
-            //        Console.WriteLine(headers);
-            //    }
-            //}
         } 
 
     }

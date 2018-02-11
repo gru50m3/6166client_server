@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+    Authors:Taylor Conners, Stephen Stroud 
+*/
+
+using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Net.Http;
@@ -15,9 +19,10 @@ namespace HTTP_client
         {
             using (HttpClient client = new HttpClient())
             {
-                hostname = args[0]; port = args[1]; command = args[2]; filename = args[3];
-                
-                if (command == "GET".ToUpper())
+                hostname = args[0]; port = args[1]; command = args[2].ToUpper(); filename = args[3];
+                //IPHostEntry ipHost = Dns.GetHostEntry(hostname);
+
+                if (command == "GET")
                 {
                     string fullPath = hostname + ":" + port + "/" + filename;
                     GetRequest(fullPath, client).Wait();
@@ -36,6 +41,10 @@ namespace HTTP_client
         {
             using (HttpResponseMessage response = await client.GetAsync(path))
             {
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("200 OK");
+                }
                 using (HttpContent content = response.Content)
                 {
                     string msg = await content.ReadAsStringAsync();
@@ -46,23 +55,31 @@ namespace HTTP_client
 
         protected static async Task PutRequest(String path, String filePath, HttpClient client)
         {
+
             FileInfo _file = new FileInfo(filePath);
+            String extensionType = _file.Extension.Split('.')[1];
+            
+            Console.WriteLine(extensionType);
             if (_file.Exists)
             {
                 FileStream stream = _file.OpenRead();
                 HttpContent fileContent = new StreamContent(stream);
-                using (MultipartFormDataContent form = new MultipartFormDataContent())
+                fileContent.Headers.ContentType = new MediaTypeWithQualityHeaderValue("application/" + extensionType);
+                fileContent.Headers.Add("fileName", _file.Name);
+                using (HttpResponseMessage response = await client.PutAsync(path, fileContent))
                 {
-                    form.Add(fileContent);
-                    using (HttpResponseMessage response = await client.PutAsync(path, fileContent))
+                    
+                    using (HttpContent content = response.Content)
                     {
-                        using (HttpContent content = response.Content)
+                        if (response.IsSuccessStatusCode)
                         {
-                            string msg = await content.ReadAsStringAsync();
-                            Console.WriteLine(msg);
+                            Console.WriteLine("200 OK");
                         }
+                        string msg = await content.ReadAsStringAsync();
+                        Console.WriteLine(msg);
                     }
                 }
+                
             }
             
         }
